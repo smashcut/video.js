@@ -5,12 +5,22 @@ import * as browser from './utils/browser.js';
 import window from 'global/window';
 import * as Fn from './utils/fn.js';
 
+const defaults = {
+  // time in seconds that should be considered at the live edge
+  // IE 14.9s in the past is still considered live
+  liveTolerance: 15,
+
+  // Duration that the live window must be to consider using the live ui
+  // Live window is the lowest seekableStart minus the hightest seekableEnd
+  trackingThreshold: 30
+};
+
 /* track when we are at the live edge, and other helpers for live playback */
 class LiveTracker extends Component {
 
   constructor(player, options) {
     // LiveTracker does not need an element
-    const options_ = mergeOptions({createEl: false, liveTolerance: 15}, options);
+    const options_ = mergeOptions({createEl: false}, defaults, options);
 
     super(player, options_);
 
@@ -79,9 +89,13 @@ class LiveTracker extends Component {
    * and start/stop tracking accordingly.
    */
   handleDurationchange() {
-    if (this.player_.duration() === Infinity) {
+    if (this.player_.duration() === Infinity && this.liveWindow() > this.options_.trackingThreshold) {
+      if (this.player_.options_.liveui) {
+        this.player_.addClass('vjs-liveui');
+      }
       this.startTracking();
     } else {
+      this.player_.removeClass('vjs-liveui');
       this.stopTracking();
     }
   }
