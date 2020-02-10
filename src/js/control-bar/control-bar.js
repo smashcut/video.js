@@ -31,7 +31,6 @@ import './spacer-controls/custom-control-spacer.js';
  * @extends Component
  */
 class ControlBar extends Component {
-
   /**
    * Create the `Component`'s DOM element
    *
@@ -39,23 +38,80 @@ class ControlBar extends Component {
    *         The element that was created.
    */
   createEl() {
-    return super.createEl('div', {
+    this.controlBarTopEl = super.createEl('div', {
+      className: 'vjs-control-bar-top',
+      dir: 'ltr'
+    });
+    this.controlBarBottomEl = super.createEl('div', {
+      className: 'vjs-control-bar-bottom',
+      dir: 'ltr'
+    });
+    this.controlBarBottomLeftEl = super.createEl('div', {
+      className: 'vjs-control-bar-bottom-left',
+      dir: 'ltr'
+    });
+    this.controlBarBottomRightEl = super.createEl('div', {
+      className: 'vjs-control-bar-bottom-right',
+      dir: 'ltr'
+    });
+    this.controlBarEl = super.createEl('div', {
       className: 'vjs-control-bar',
       dir: 'ltr'
     });
+    this.controlBarEl.appendChild(this.controlBarTopEl);
+    this.controlBarEl.appendChild(this.controlBarBottomEl);
+    this.controlBarBottomEl.appendChild(this.controlBarBottomLeftEl);
+    this.controlBarBottomEl.appendChild(this.controlBarBottomRightEl);
+    return this.controlBarEl;
+  }
+
+  // add children to layout comps based on their name
+  addChild(child, options = {}, index = this.children_.length) {
+    const saveEl = this.el_;
+
+    switch (child) {
+    case 'progressControl':
+      this.el_ = this.controlBarTopEl;
+      break;
+    case 'playToggle':
+    case 'currentTimeDisplay':
+    case 'timeDivider':
+    case 'durationDisplay':
+    case 'liveDisplay':
+    case 'seekToLive':
+    case 'remainingTimeDisplay':
+    case 'customControlSpacer':
+      this.el_ = this.controlBarBottomLeftEl;
+      break;
+    case 'volumePanel':
+    case 'playbackRateMenuButton':
+    case 'chaptersButton':
+    case 'descriptionsButton':
+    case 'subsCapsButton':
+    case 'audioTrackButton':
+    case 'fullscreenToggle':
+    case 'pictureInPictureToggle':
+      this.el_ = this.controlBarBottomRightEl;
+      break;
+    default:
+      // console.log('addChild', child);
+    }
+    const comp = super.addChild(child, options, index);
+
+    this.el_ = saveEl;
+    return comp;
   }
 }
 
 /**
  * Default options for `ControlBar`
- *
+ * The order is important. It defines the order of the ui elements
  * @type {Object}
  * @private
  */
 ControlBar.prototype.options_ = {
   children: [
     'playToggle',
-    'volumePanel',
     'currentTimeDisplay',
     'timeDivider',
     'durationDisplay',
@@ -64,6 +120,7 @@ ControlBar.prototype.options_ = {
     'seekToLive',
     'remainingTimeDisplay',
     'customControlSpacer',
+    'volumePanel',
     'playbackRateMenuButton',
     'chaptersButton',
     'descriptionsButton',

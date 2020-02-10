@@ -28,7 +28,7 @@ test/dist/*
 .coveralls.yml
 .sass-cache
 
-dist/*
+# dist/*
 es5/*
 
 .idea/
@@ -38,3 +38,4 @@ core.es.js
 
 # Ignore Chinese clones for now.
 lang/zh-Han*.json
+/video.js.iml

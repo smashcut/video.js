@@ -33,3 +33,18 @@
   // this hides in the same way as the other time controls for other skins
   display: none;
 }
+
+.video-js.vjs-smashcut .vjs-time-divider,
+.video-js.vjs-smashcut .vjs-current-time,
+.video-js.vjs-smashcut .vjs-duration {
+  display: block;
+}
+
+.video-js.vjs-smashcut .vjs-time-divider {
+  padding: 0;
+  min-width: initial;
+}
+
+.video-js.vjs-smashcut .vjs-remaining-time {
+  display: none;
+}

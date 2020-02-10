@@ -539,6 +539,9 @@ class Player extends Component {
     this.breakpoints(this.options_.breakpoints);
     this.responsive(this.options_.responsive);
 
+    if (options.controlbarBelow) {
+      this.addClass('vjs-smashcut');
+    }
   }
 
   /**

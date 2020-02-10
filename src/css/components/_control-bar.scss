@@ -5,9 +5,33 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3.0em;
+  height: 6.0em;
 
   @include background-color-with-alpha($primary-background-color, $primary-background-transparency);
+}
+
+.video-js.vjs-smashcut .vjs-control-bar-top,
+.video-js.vjs-smashcut .vjs-control-bar-bottom {
+  @include display-flex;
+  height: $control-bar-height / 2;
+  justify-content: space-between;
+}
+
+.video-js.vjs-smashcut .vjs-control-bar-bottom-left {
+  @include display-flex;
+}
+
+.video-js.vjs-smashcut .vjs-control-bar-bottom-right {
+  @include display-flex;
+  justify-content: flex-end;
+}
+
+.video-js.vjs-smashcut .vjs-control-bar {
+  @include display-flex;
+  flex-direction: column;
+  bottom: -$control-bar-height;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 // Video has started playing
