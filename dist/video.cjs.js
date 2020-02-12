@@ -1358,7 +1358,6 @@ var $ = createQuerier('querySelector');
 var $$ = createQuerier('querySelectorAll');
 
 var Dom = /*#__PURE__*/Object.freeze({
-  __proto__: null,
   isReal: isReal,
   isEl: isEl,
   isInFrame: isInFrame,
@@ -2128,7 +2127,6 @@ function any(elem, type, fn) {
 }
 
 var Events = /*#__PURE__*/Object.freeze({
-  __proto__: null,
   fixEvent: fixEvent,
   on: on,
   off: off,
@@ -5113,7 +5111,6 @@ var IS_IOS = IS_IPHONE || IS_IPAD || IS_IPOD;
 var IS_ANY_SAFARI = (IS_SAFARI || IS_IOS) && !IS_CHROME;
 
 var browser = /*#__PURE__*/Object.freeze({
-  __proto__: null,
   IS_IPOD: IS_IPOD,
   IOS_VERSION: IOS_VERSION,
   IS_ANDROID: IS_ANDROID,
@@ -7228,7 +7225,6 @@ var isCrossOrigin = function isCrossOrigin(url, winLoc) {
 };
 
 var Url = /*#__PURE__*/Object.freeze({
-  __proto__: null,
   parseUrl: parseUrl,
   getAbsoluteURL: getAbsoluteURL,
   getFileExtension: getFileExtension,
@@ -17373,6 +17369,8 @@ function (_Component) {
         this.el_ = this.controlBarBottomRightEl;
         break;
 
+      default: // console.log('addChild', child);
+
     }
 
     var comp = _Component.prototype.addChild.call(this, child, options, index);
@@ -21201,10 +21199,6 @@ function (_Component) {
     _this.breakpoints(_this.options_.breakpoints);
 
     _this.responsive(_this.options_.responsive);
-
-    if (options.controlbarBelow) {
-      _this.addClass('vjs-smashcut');
-    }
 
     return _this;
   }
@@ -34917,6 +34911,9 @@ var TransmuxWorker = new shimWorker("./transmuxer-worker.worker.js", function (w
           case 0x09:
             event.nalUnitType = 'access_unit_delimiter_rbsp';
             break;
+
+          default:
+            break;
         } // This triggers data on the H264Stream
 
 
@@ -42152,7 +42149,7 @@ var Decrypter = new shimWorker("./decrypter-worker.worker.js", function (window,
     }
 
     var inheritsLoose = _inheritsLoose;
-    /*! @name @videojs/vhs-utils @version 1.3.0 @license MIT */
+    /*! @name @videojs/vhs-utils @version 1.2.1 @license MIT */
 
     /**
      * @file stream.js

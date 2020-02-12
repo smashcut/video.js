@@ -14,7 +14,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('global/window'), require('global/document')) :
   typeof define === 'function' && define.amd ? define(['global/window', 'global/document'], factory) :
   (global = global || self, global.videojs = factory(global.window, global.document));
-}(this, (function (window$3, document) { 'use strict';
+}(this, function (window$3, document) { 'use strict';
 
   window$3 = window$3 && window$3.hasOwnProperty('default') ? window$3['default'] : window$3;
   document = document && document.hasOwnProperty('default') ? document['default'] : document;
@@ -1365,7 +1365,6 @@
   var $$ = createQuerier('querySelectorAll');
 
   var Dom = /*#__PURE__*/Object.freeze({
-    __proto__: null,
     isReal: isReal,
     isEl: isEl,
     isInFrame: isInFrame,
@@ -2135,7 +2134,6 @@
   }
 
   var Events = /*#__PURE__*/Object.freeze({
-    __proto__: null,
     fixEvent: fixEvent,
     on: on,
     off: off,
@@ -5138,7 +5136,6 @@
   var IS_ANY_SAFARI = (IS_SAFARI || IS_IOS) && !IS_CHROME;
 
   var browser = /*#__PURE__*/Object.freeze({
-    __proto__: null,
     IS_IPOD: IS_IPOD,
     IOS_VERSION: IOS_VERSION,
     IS_ANDROID: IS_ANDROID,
@@ -5760,9 +5757,9 @@
       '[': 219,
       '\\': 220,
       ']': 221,
-      "'": 222
-    }; // Helper aliases
+      "'": 222 // Helper aliases
 
+    };
     var aliases = exports.aliases = {
       'windows': 91,
       '⇧': 16,
@@ -5784,11 +5781,12 @@
       'ins': 45,
       'del': 46,
       'cmd': 91
+      /*!
+       * Programatically add the following
+       */
+      // lower case chars
+
     };
-    /*!
-     * Programatically add the following
-     */
-    // lower case chars
 
     for (i = 97; i < 123; i++) {
       codes[String.fromCharCode(i)] = i - 32;
@@ -7463,7 +7461,6 @@
   };
 
   var Url = /*#__PURE__*/Object.freeze({
-    __proto__: null,
     parseUrl: parseUrl,
     getAbsoluteURL: getAbsoluteURL,
     getFileExtension: getFileExtension,
@@ -17918,6 +17915,8 @@
           this.el_ = this.controlBarBottomRightEl;
           break;
 
+        default: // console.log('addChild', child);
+
       }
 
       var comp = _Component.prototype.addChild.call(this, child, options, index);
@@ -21746,10 +21745,6 @@
       _this.breakpoints(_this.options_.breakpoints);
 
       _this.responsive(_this.options_.responsive);
-
-      if (options.controlbarBelow) {
-        _this.addClass('vjs-smashcut');
-      }
 
       return _this;
     }
@@ -31177,9 +31172,9 @@
         //isHTML = true;
         var visibleNamespaces = [{
           namespace: uri,
-          prefix: null
-        } //{namespace:uri,prefix:''}
-        ];
+          prefix: null //{namespace:uri,prefix:''}
+
+        }];
       }
     }
 
@@ -31472,6 +31467,7 @@
         }
 
         break;
+
 
       case ATTRIBUTE_NODE:
         deep = true;
@@ -35429,6 +35425,9 @@
             }
 
             break;
+
+          default:
+            break;
         } // Found the pat and pmt, we can stop walking the segment
 
 
@@ -35487,6 +35486,9 @@
             }
 
             break;
+
+          default:
+            break;
         }
 
         if (endLoop) {
@@ -35532,6 +35534,9 @@
               }
             }
 
+            break;
+
+          default:
             break;
         }
 
@@ -35634,6 +35639,9 @@
             }
 
             break;
+
+          default:
+            break;
         }
 
         if (endLoop && result.firstKeyFrame) {
@@ -35679,6 +35687,9 @@
               }
             }
 
+            break;
+
+          default:
             break;
         }
 
@@ -35879,6 +35890,9 @@
               delete result.audio;
             }
 
+            break;
+
+          default:
             break;
         }
       }
@@ -37541,6 +37555,9 @@
           }
 
           result.push(seiNal);
+          break;
+
+        default:
           break;
       }
     }
@@ -46065,6 +46082,9 @@
             case 0x09:
               event.nalUnitType = 'access_unit_delimiter_rbsp';
               break;
+
+            default:
+              break;
           } // This triggers data on the H264Stream
 
 
@@ -53300,7 +53320,7 @@
       }
 
       var inheritsLoose = _inheritsLoose;
-      /*! @name @videojs/vhs-utils @version 1.3.0 @license MIT */
+      /*! @name @videojs/vhs-utils @version 1.2.1 @license MIT */
 
       /**
        * @file stream.js
@@ -57581,4 +57601,4 @@
 
   return videojs$1;
 
-})));
+}));

@@ -34,17 +34,17 @@
   display: none;
 }
 
-.video-js.vjs-smashcut .vjs-time-divider,
-.video-js.vjs-smashcut .vjs-current-time,
-.video-js.vjs-smashcut .vjs-duration {
+.video-js .vjs-time-divider,
+.video-js .vjs-current-time,
+.video-js .vjs-duration {
   display: block;
 }
 
-.video-js.vjs-smashcut .vjs-time-divider {
+.video-js .vjs-time-divider {
   padding: 0;
   min-width: initial;
 }
 
-.video-js.vjs-smashcut .vjs-remaining-time {
+.video-js .vjs-remaining-time {
   display: none;
 }
