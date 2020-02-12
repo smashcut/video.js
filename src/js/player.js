@@ -1086,7 +1086,8 @@ class Player extends Component {
       'vtt.js': this.options_['vtt.js'],
       'canOverridePoster': !!this.options_.techCanOverridePoster,
       'enableSourceset': this.options_.enableSourceset,
-      'Promise': this.options_.Promise
+      'Promise': this.options_.Promise,
+      'playerOptions': this.options_.playerOptions
     };
 
     TRACK_TYPES.names.forEach((name) => {
