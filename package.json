@@ -83,7 +83,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@videojs/http-streaming": "smashcut/http-streaming#smashcut/develop",
+    "@videojs/http-streaming": "github:smashcut/http-streaming#smashcut/develop",
     "@videojs/xhr": "smashcut/xhr#smashcut/develop",
     "global": "4.3.2",
     "keycode": "^2.2.0",
