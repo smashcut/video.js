@@ -3355,10 +3355,11 @@ function () {
     var detail = typeof actionOrDetail === 'string' ? {
       actionOrDetail: actionOrDetail
     } : actionOrDetail;
-    this.dispatchEvent({
-      type: 'smashcutplayerui',
-      detail: detail
-    });
+    this.el().dispatchEvent(new window$1.CustomEvent('smashcutplayerui', {
+      detail: detail,
+      bubbles: true,
+      cancelable: false
+    }));
   }
   /**
    * Dispose of the `Component` and all child components.
@@ -10359,8 +10360,10 @@ function (_ClickableComponent) {
 
     if (this.player_.paused()) {
       silencePromise(this.player_.play());
+      this.dispatchSmashcutUiEvent('play');
     } else {
       this.player_.pause();
+      this.dispatchSmashcutUiEvent('pause');
     }
   };
 

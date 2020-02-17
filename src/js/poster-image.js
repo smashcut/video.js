@@ -118,8 +118,10 @@ class PosterImage extends ClickableComponent {
 
     if (this.player_.paused()) {
       silencePromise(this.player_.play());
+      this.dispatchSmashcutUiEvent('play');
     } else {
       this.player_.pause();
+      this.dispatchSmashcutUiEvent('pause');
     }
   }
 

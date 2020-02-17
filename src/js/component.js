@@ -151,7 +151,7 @@ class Component {
   dispatchSmashcutUiEvent(actionOrDetail) {
     const detail = (typeof actionOrDetail === 'string') ? {actionOrDetail} : actionOrDetail;
 
-    this.dispatchEvent({type: 'smashcutplayerui', detail});
+    this.el().dispatchEvent(new window.CustomEvent('smashcutplayerui', {detail, bubbles: true, cancelable: false}));
   }
 
   /**
