@@ -229,6 +229,8 @@ class SeekBar extends Slider {
     this.videoWasPlaying = !this.player_.paused();
     this.player_.pause();
 
+    this.dispatchSmashcutUiEvent('scrubbing-start');
+
     super.handleMouseDown(event);
   }
 
@@ -282,6 +284,8 @@ class SeekBar extends Slider {
 
     // Set new time (tell player to seek to new time)
     this.player_.currentTime(newTime);
+
+    this.dispatchSmashcutUiEvent('scrubbing-change');
   }
 
   enable() {
@@ -338,6 +342,8 @@ class SeekBar extends Slider {
       // If the player is paused, make sure we display the correct time on the seek bar.
       this.update_();
     }
+
+    this.dispatchSmashcutUiEvent({action: 'scrubbing-end', position: this.getPercent()});
   }
 
   /**

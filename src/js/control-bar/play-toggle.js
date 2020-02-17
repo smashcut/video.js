@@ -58,8 +58,10 @@ class PlayToggle extends Button {
   handleClick(event) {
     if (this.player_.paused()) {
       this.player_.play();
+      this.dispatchSmashcutUiEvent('play');
     } else {
       this.player_.pause();
+      this.dispatchSmashcutUiEvent('pause');
     }
   }
 

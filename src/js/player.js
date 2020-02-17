@@ -1865,9 +1865,12 @@ class Player extends Component {
 
     if (this.paused()) {
       silencePromise(this.play());
+      this.dispatchSmashcutUiEvent('play');
     } else {
       this.pause();
+      this.dispatchSmashcutUiEvent('pause');
     }
+
   }
 
   /**

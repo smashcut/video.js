@@ -148,6 +148,12 @@ class Component {
     }
   }
 
+  dispatchSmashcutUiEvent(actionOrDetail) {
+    const detail = (typeof actionOrDetail === 'string') ? {actionOrDetail} : actionOrDetail;
+
+    this.dispatchEvent({type: 'smashcutplayerui', detail});
+  }
+
   /**
    * Dispose of the `Component` and all child components.
    *
