@@ -149,9 +149,9 @@ class Component {
   }
 
   dispatchSmashcutUiEvent(actionOrDetail) {
-    const detail = (typeof actionOrDetail === 'string') ? {actionOrDetail} : actionOrDetail;
+    const detail = (typeof actionOrDetail === 'string') ? {action: actionOrDetail} : actionOrDetail;
 
-    this.trigger({type: 'smashcutplayerui', detail, bubbles: true, cancelable: false});
+    this.trigger({type: 'smashcutplayerui', detail, bubbles: true});
   }
 
   /**

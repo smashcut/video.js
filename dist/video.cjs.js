@@ -3353,13 +3353,12 @@ function () {
 
   _proto.dispatchSmashcutUiEvent = function dispatchSmashcutUiEvent(actionOrDetail) {
     var detail = typeof actionOrDetail === 'string' ? {
-      actionOrDetail: actionOrDetail
+      action: actionOrDetail
     } : actionOrDetail;
     this.trigger({
       type: 'smashcutplayerui',
       detail: detail,
-      bubbles: true,
-      cancelable: false
+      bubbles: true
     });
   }
   /**
