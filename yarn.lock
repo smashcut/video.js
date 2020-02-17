@@ -853,7 +853,7 @@
 
 "@videojs/http-streaming@github:smashcut/http-streaming#smashcut/develop":
   version "1.11.0-alpha.1-smashcut"
-  resolved "https://codeload.github.com/smashcut/http-streaming/tar.gz/abfb01066c65b9e2ca9e12f5d56e09c9a52a61d9"
+  resolved "https://codeload.github.com/smashcut/http-streaming/tar.gz/a4c69d7e4a098d5e6ff8ec844b15f3b6ba1dac61"
   dependencies:
     "@babel/runtime" "^7.5.5"
     "@videojs/vhs-utils" "^1.2.1"
@@ -862,7 +862,6 @@
     m3u8-parser "4.4.2"
     mpd-parser "0.10.0"
     mux.js "5.5.1"
-    video.js "^6 || ^7"
 
 "@videojs/vhs-utils@^1.0.0", "@videojs/vhs-utils@^1.1.0", "@videojs/vhs-utils@^1.2.1":
   version "1.3.0"
@@ -875,7 +874,7 @@
 
 "@videojs/xhr@smashcut/xhr#smashcut/develop":
   version "2.5.0-smashcut"
-  resolved "https://codeload.github.com/smashcut/xhr/tar.gz/ed995a580b887b3499e1bbf419e99d3702b8067d"
+  resolved "https://codeload.github.com/smashcut/xhr/tar.gz/112bdc406dbcf62b09322f85ab2de2b93b8e6be5"
   dependencies:
     "@babel/runtime" "^7.5.5"
     global "~4.4.0"
