@@ -3362,11 +3362,12 @@
       var detail = typeof actionOrDetail === 'string' ? {
         actionOrDetail: actionOrDetail
       } : actionOrDetail;
-      this.el().dispatchEvent(new window$3.CustomEvent('smashcutplayerui', {
+      this.trigger({
+        type: 'smashcutplayerui',
         detail: detail,
         bubbles: true,
         cancelable: false
-      }));
+      });
     }
     /**
      * Dispose of the `Component` and all child components.
