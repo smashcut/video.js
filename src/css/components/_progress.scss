@@ -31,7 +31,10 @@
 .video-js .vjs-progress-holder {
   @include flex(auto);
   @include transition(all 0.2s);
-  height: 0.3em;
+  height: .8em; // 0.3em;
+  border-radius: 4px;
+  overflow: hidden; // make all bars have rounded ends
+  background: #444 !important;
 }
 
 .video-js .vjs-progress-control .vjs-progress-holder {
@@ -45,13 +48,13 @@
 
 // This increases the size of the progress holder so there is an increased
 // hit area for clicks/touches.
-.video-js .vjs-progress-control:hover .vjs-progress-holder {
-  font-size: 1.666666666666666666em;
-}
+// .video-js .vjs-progress-control:hover .vjs-progress-holder {
+//  font-size: 1.666666666666666666em;
+// }
 
-.video-js .vjs-progress-control:hover .vjs-progress-holder.disabled {
-  font-size: 1em;
-}
+// .video-js .vjs-progress-control:hover .vjs-progress-holder.disabled {
+//  font-size: 1em;
+// }
 
 // .vjs-play-progress / PlayProgressBar and .vjs-load-progress / LoadProgressBar
 //
@@ -72,26 +75,26 @@
 
 .video-js .vjs-play-progress {
   background-color: $primary-foreground-color;
-  @extend .vjs-icon-circle;
+  // @extend .vjs-icon-circle;
 
   // Progress handle
-  &:before {
-    font-size: 0.9em;
-    position: absolute;
-    right: -0.5em;
-    top: -0.333333333333333em;
-    z-index: 1;
-  }
+  // &:before {
+  //   font-size: 0.95em;
+  //   position: absolute;
+  //   right: -0.5em;
+  //   top: -0.06em;
+  //   z-index: 1;
+  // }
 }
 
 .video-js .vjs-load-progress {
-  background: rgba($secondary-background-color, $secondary-background-transparency);
+  background: #84878d; // rgba($secondary-background-color, $secondary-background-transparency);
 }
 
 // There are child elements of the load progress bar that represent the
 // specific time ranges that have been buffered.
 .video-js .vjs-load-progress div {
-  background: rgba($secondary-background-color, 0.75);
+  background: #84878d; // rgba($secondary-background-color, 0.75);
 }
 
 // .vjs-time-tooltip

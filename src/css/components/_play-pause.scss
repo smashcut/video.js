@@ -3,11 +3,29 @@
 }
 .video-js .vjs-play-control .vjs-icon-placeholder {
   @include flex(none);
-  @extend .vjs-icon-play;
+  // @extend .vjs-icon-play;
+
+  &:before {
+    content: '\f04b' !important;
+    font-family: 'Font Awesome 5 Free';
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 900;
+    font-size: 16px;
+    color: #ffffff;
+  }
 }
 .video-js .vjs-play-control.vjs-playing .vjs-icon-placeholder {
-  @extend .vjs-icon-pause;
+  // @extend .vjs-icon-pause;
+
+  &:before {
+    content: '\f04c' !important;
+  }
 }
 .video-js .vjs-play-control.vjs-ended .vjs-icon-placeholder {
-  @extend .vjs-icon-replay;
+  // @extend .vjs-icon-replay;
+
+  &:before {
+    content: '\f04b' !important;
+  }
 }

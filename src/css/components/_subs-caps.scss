@@ -1,7 +1,17 @@
 // North America uses 'CC' icon
 .video-js:lang(en) .vjs-subs-caps-button .vjs-icon-placeholder,
 .video-js:lang(fr-CA) .vjs-subs-caps-button .vjs-icon-placeholder {
-  @extend .vjs-icon-captions;
+  // @extend .vjs-icon-captions;
+
+  &:before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f20a';
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 900;
+    font-size: 16px;
+    color: #ffffff;
+  }
 }
 
 // ROW uses 'subtitles'

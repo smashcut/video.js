@@ -1,11 +1,11 @@
 .video-js .vjs-time-control {
   @include flex(none);
-  font-size: 1em;
-  line-height: 3em;
+  font-size: 1.2em;
+  line-height: 2em;
   min-width: 2em;
   width: auto;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: .1em;
+  padding-right: .1em;
 }
 
 .vjs-live .vjs-time-control {

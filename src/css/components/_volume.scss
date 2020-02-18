@@ -3,18 +3,40 @@
   @include flex(none);
 
   & .vjs-icon-placeholder {
-    @extend .vjs-icon-volume-high;
+    // @extend .vjs-icon-volume-high;
+
+    &:before {
+      font-family: 'Font Awesome 5 Free';
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: 900;
+      font-size: 16px;
+      color: #ffffff;
+      content: '\f028';
+    }
   }
 }
 
 .video-js .vjs-mute-control.vjs-vol-0 .vjs-icon-placeholder {
-  @extend .vjs-icon-volume-mute;
+  // @extend .vjs-icon-volume-mute;
+
+  &:before {
+    content: '\f6a9';
+  }
 }
 .video-js .vjs-mute-control.vjs-vol-1 .vjs-icon-placeholder {
-  @extend .vjs-icon-volume-low;
+  // @extend .vjs-icon-volume-low;
+
+  &:before {
+    content: '\f027';
+  }
 }
 .video-js .vjs-mute-control.vjs-vol-2 .vjs-icon-placeholder {
-  @extend .vjs-icon-volume-mid;
+  // @extend .vjs-icon-volume-mid;
+
+  &:before {
+    content: '\f027';
+  }
 }
 
 .video-js .vjs-volume-control {

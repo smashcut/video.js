@@ -13369,113 +13369,6 @@
   Component.registerComponent('Button', Button);
 
   /**
-   * The initial play button that shows before the video has played. The hiding of the
-   * `BigPlayButton` get done via CSS and `Player` states.
-   *
-   * @extends Button
-   */
-
-  var BigPlayButton =
-  /*#__PURE__*/
-  function (_Button) {
-    inheritsLoose(BigPlayButton, _Button);
-
-    function BigPlayButton(player, options) {
-      var _this;
-
-      _this = _Button.call(this, player, options) || this;
-      _this.mouseused_ = false;
-
-      _this.on('mousedown', _this.handleMouseDown);
-
-      return _this;
-    }
-    /**
-     * Builds the default DOM `className`.
-     *
-     * @return {string}
-     *         The DOM `className` for this object. Always returns 'vjs-big-play-button'.
-     */
-
-
-    var _proto = BigPlayButton.prototype;
-
-    _proto.buildCSSClass = function buildCSSClass() {
-      return 'vjs-big-play-button';
-    }
-    /**
-     * This gets called when a `BigPlayButton` "clicked". See {@link ClickableComponent}
-     * for more detailed information on what a click can be.
-     *
-     * @param {EventTarget~Event} event
-     *        The `keydown`, `tap`, or `click` event that caused this function to be
-     *        called.
-     *
-     * @listens tap
-     * @listens click
-     */
-    ;
-
-    _proto.handleClick = function handleClick(event) {
-      var playPromise = this.player_.play(); // exit early if clicked via the mouse
-
-      if (this.mouseused_ && event.clientX && event.clientY) {
-        var sourceIsEncrypted = this.player_.usingPlugin('eme') && this.player_.eme.sessions && this.player_.eme.sessions.length > 0;
-        silencePromise(playPromise);
-
-        if (this.player_.tech(true) && // We've observed a bug in IE and Edge when playing back DRM content where
-        // calling .focus() on the video element causes the video to go black,
-        // so we avoid it in that specific case
-        !((IE_VERSION || IS_EDGE) && sourceIsEncrypted)) {
-          this.player_.tech(true).focus();
-        }
-
-        return;
-      }
-
-      var cb = this.player_.getChild('controlBar');
-      var playToggle = cb && cb.getChild('playToggle');
-
-      if (!playToggle) {
-        this.player_.tech(true).focus();
-        return;
-      }
-
-      var playFocus = function playFocus() {
-        return playToggle.focus();
-      };
-
-      if (isPromise(playPromise)) {
-        playPromise.then(playFocus, function () {});
-      } else {
-        this.setTimeout(playFocus, 1);
-      }
-    };
-
-    _proto.handleKeyDown = function handleKeyDown(event) {
-      this.mouseused_ = false;
-
-      _Button.prototype.handleKeyDown.call(this, event);
-    };
-
-    _proto.handleMouseDown = function handleMouseDown(event) {
-      this.mouseused_ = true;
-    };
-
-    return BigPlayButton;
-  }(Button);
-  /**
-   * The text that should display over the `BigPlayButton`s controls. Added to for localization.
-   *
-   * @type {string}
-   * @private
-   */
-
-
-  BigPlayButton.prototype.controlText_ = 'Play Video';
-  Component.registerComponent('BigPlayButton', BigPlayButton);
-
-  /**
    * The `CloseButton` is a `{@link Button}` that fires a `close` event when
    * it gets clicked.
    *
@@ -16034,111 +15927,6 @@
     children: ['seekBar']
   };
   Component.registerComponent('ProgressControl', ProgressControl);
-
-  /**
-   * Toggle Picture-in-Picture mode
-   *
-   * @extends Button
-   */
-
-  var PictureInPictureToggle =
-  /*#__PURE__*/
-  function (_Button) {
-    inheritsLoose(PictureInPictureToggle, _Button);
-
-    /**
-     * Creates an instance of this class.
-     *
-     * @param {Player} player
-     *        The `Player` that this class should be attached to.
-     *
-     * @param {Object} [options]
-     *        The key/value store of player options.
-     *
-     * @listens Player#enterpictureinpicture
-     * @listens Player#leavepictureinpicture
-     */
-    function PictureInPictureToggle(player, options) {
-      var _this;
-
-      _this = _Button.call(this, player, options) || this;
-
-      _this.on(player, ['enterpictureinpicture', 'leavepictureinpicture'], _this.handlePictureInPictureChange); // TODO: Activate button on player loadedmetadata event.
-      // TODO: Deactivate button on player emptied event.
-      // TODO: Deactivate button if disablepictureinpicture attribute is present.
-
-
-      if (!document.pictureInPictureEnabled) {
-        _this.disable();
-      }
-
-      return _this;
-    }
-    /**
-     * Builds the default DOM `className`.
-     *
-     * @return {string}
-     *         The DOM `className` for this object.
-     */
-
-
-    var _proto = PictureInPictureToggle.prototype;
-
-    _proto.buildCSSClass = function buildCSSClass() {
-      return "vjs-picture-in-picture-control " + _Button.prototype.buildCSSClass.call(this);
-    }
-    /**
-     * Handles enterpictureinpicture and leavepictureinpicture on the player and change control text accordingly.
-     *
-     * @param {EventTarget~Event} [event]
-     *        The {@link Player#enterpictureinpicture} or {@link Player#leavepictureinpicture} event that caused this function to be
-     *        called.
-     *
-     * @listens Player#enterpictureinpicture
-     * @listens Player#leavepictureinpicture
-     */
-    ;
-
-    _proto.handlePictureInPictureChange = function handlePictureInPictureChange(event) {
-      if (this.player_.isInPictureInPicture()) {
-        this.controlText('Exit Picture-in-Picture');
-      } else {
-        this.controlText('Picture-in-Picture');
-      }
-    }
-    /**
-     * This gets called when an `PictureInPictureToggle` is "clicked". See
-     * {@link ClickableComponent} for more detailed information on what a click can be.
-     *
-     * @param {EventTarget~Event} [event]
-     *        The `keydown`, `tap`, or `click` event that caused this function to be
-     *        called.
-     *
-     * @listens tap
-     * @listens click
-     */
-    ;
-
-    _proto.handleClick = function handleClick(event) {
-      if (!this.player_.isInPictureInPicture()) {
-        this.player_.requestPictureInPicture();
-      } else {
-        this.player_.exitPictureInPicture();
-      }
-    };
-
-    return PictureInPictureToggle;
-  }(Button);
-  /**
-   * The text that should display over the `PictureInPictureToggle`s controls. Added for localization.
-   *
-   * @type {string}
-   * @private
-   */
-
-
-  PictureInPictureToggle.prototype.controlText_ = 'Picture-in-Picture';
-  Component.registerComponent('PictureInPictureToggle', PictureInPictureToggle);
 
   /**
    * Toggle fullscreen video
@@ -19787,7 +19575,7 @@
         case 'subsCapsButton':
         case 'audioTrackButton':
         case 'fullscreenToggle':
-        case 'pictureInPictureToggle':
+          // case 'pictureInPictureToggle':
           this.el_ = this.controlBarBottomRightEl;
           break;
 
@@ -19812,10 +19600,14 @@
   ControlBar.prototype.options_ = {
     children: ['playToggle', 'currentTimeDisplay', 'timeDivider', 'durationDisplay', 'progressControl', 'liveDisplay', 'seekToLive', 'remainingTimeDisplay', 'customControlSpacer', 'volumePanel', 'playbackRateMenuButton', 'chaptersButton', 'descriptionsButton', 'subsCapsButton', 'audioTrackButton', 'fullscreenToggle']
   };
-
+  /*
   if ('exitPictureInPicture' in document) {
-    ControlBar.prototype.options_.children.splice(ControlBar.prototype.options_.children.length - 1, 0, 'pictureInPictureToggle');
-  }
+    ControlBar.prototype.options_.children.splice(
+      ControlBar.prototype.options_.children.length - 1,
+      0,
+      'pictureInPictureToggle'
+    );
+  }*/
 
   Component.registerComponent('ControlBar', ControlBar);
 
@@ -27869,7 +27661,8 @@
     // 'playbackRates': [0.5, 1, 1.5, 2],
     liveui: false,
     // Included control sets
-    children: ['mediaLoader', 'posterImage', 'textTrackDisplay', 'loadingSpinner', 'bigPlayButton', 'liveTracker', 'controlBar', 'errorDisplay', 'textTrackSettings', 'resizeManager'],
+    children: ['mediaLoader', 'posterImage', 'textTrackDisplay', 'loadingSpinner', // 'bigPlayButton',
+    'liveTracker', 'controlBar', 'errorDisplay', 'textTrackSettings', 'resizeManager'],
     language: navigator && (navigator.languages && navigator.languages[0] || navigator.userLanguage || navigator.language) || 'en',
     // locales and their language translations
     languages: {},
