@@ -744,11 +744,13 @@ body.vjs-full-window {
 
 .video-js .vjs-control-bar-bottom-left {
   display: flex;
+  align-items: center;
 }
 
 .video-js .vjs-control-bar-bottom-right {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .video-js .vjs-control-bar {
@@ -1238,7 +1240,7 @@ body.vjs-full-window {
 .video-js .vjs-time-control {
   flex: none;
   font-size: 1.2em;
-  line-height: 2em;
+  line-height: 2.1em;
   min-width: 2em;
   width: auto;
   padding-left: 0.1em;

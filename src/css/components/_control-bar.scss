@@ -19,11 +19,13 @@
 
 .video-js .vjs-control-bar-bottom-left {
   @include display-flex;
+  align-items: center;
 }
 
 .video-js .vjs-control-bar-bottom-right {
   @include display-flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .video-js .vjs-control-bar {
