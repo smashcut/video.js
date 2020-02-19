@@ -87,7 +87,7 @@ export function resetFormatTime() {
  * @return   {string}
  *           Time formatted as H:MM:SS or M:SS
  */
-function formatTime(seconds, guide = seconds) {
+function formatTime(seconds, guide = 600) {
   return implementation(seconds, guide);
 }
 

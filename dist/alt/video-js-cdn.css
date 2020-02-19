@@ -731,18 +731,19 @@ body.vjs-full-window {
   left: 0;
   right: 0;
   height: 64px;
-  padding-top: 14px;
+  padding-top: 15px;
   background-color: #242424;
 }
 
 .video-js .vjs-control-bar-top {
-  padding: 4px;
+  padding: 4px 0;
 }
 
 .video-js .vjs-control-bar-bottom {
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
+  padding-top: 5px;
 }
 
 .video-js .vjs-control-bar-bottom-left {

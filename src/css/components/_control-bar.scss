@@ -6,18 +6,19 @@
   left: 0;
   right: 0;
   height: $control-bar-height;
-  padding-top: 14px;
+  padding-top: 15px;
   background-color: #242424;
 }
 
 .video-js .vjs-control-bar-top {
-  padding: 4px;
+  padding: 4px 0;
 }
 
 .video-js .vjs-control-bar-bottom {
   @include display-flex;
   flex-grow: 1;
   justify-content: space-between;
+  padding-top: 5px;
 }
 
 .video-js .vjs-control-bar-bottom-left {
