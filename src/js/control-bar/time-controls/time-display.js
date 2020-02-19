@@ -73,7 +73,7 @@ class TimeDisplay extends Component {
    * @private
    */
   updateTextNode_(time = 0) {
-    time = formatTime(time);
+    time = formatTime(time, 600);
 
     if (this.formattedTime_ === time) {
       return;
