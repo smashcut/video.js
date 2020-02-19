@@ -758,12 +758,17 @@ body.vjs-full-window {
   align-items: center;
 }
 
-.video-js .vjs-control-bar {
+.video-js:not(.vjs-fullscreen) .vjs-control-bar {
   display: flex;
   flex-direction: column;
   bottom: -64px;
   visibility: visible !important;
   opacity: 1 !important;
+}
+
+.video-js.vjs-fullscreen .vjs-control-bar {
+  display: flex;
+  flex-direction: column;
 }
 
 .vjs-has-started .vjs-control-bar {

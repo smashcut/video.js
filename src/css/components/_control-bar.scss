@@ -32,12 +32,17 @@
   align-items: center;
 }
 
-.video-js .vjs-control-bar {
+.video-js:not(.vjs-fullscreen) .vjs-control-bar {
   @include display-flex;
   flex-direction: column;
   bottom: -$control-bar-height;
   visibility: visible !important;
   opacity: 1 !important;
+}
+
+.video-js.vjs-fullscreen .vjs-control-bar {
+  @include display-flex;
+  flex-direction: column;
 }
 
 // Video has started playing
@@ -58,7 +63,6 @@
 
   $trans: visibility 1.0s, opacity 1.0s;
   @include transition($trans);
-
 }
 
 .vjs-controls-disabled .vjs-control-bar,
