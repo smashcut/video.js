@@ -839,6 +839,7 @@ body.vjs-full-window {
   align-items: center;
   min-width: 4em;
   touch-action: none;
+  width: 100%;
 }
 
 .video-js .vjs-progress-control.disabled {
