@@ -5,15 +5,18 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 6.0em;
-
-  @include background-color-with-alpha($primary-background-color, $primary-background-transparency);
+  height: $control-bar-height;
+  padding-top: 14px;
+  background-color: #242424;
 }
 
-.video-js .vjs-control-bar-top,
+.video-js .vjs-control-bar-top {
+  padding: 4px;
+}
+
 .video-js .vjs-control-bar-bottom {
   @include display-flex;
-  height: $control-bar-height / 2;
+  flex-grow: 1;
   justify-content: space-between;
 }
 
