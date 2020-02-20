@@ -7798,7 +7798,7 @@ request-promise-native@^1.0.5:
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 
-request@^2.81.0, request@^2.82.0, request@^2.85.0, request@^2.87.0:
+request@^2.81.0, request@^2.82.0, request@^2.83.0, request@^2.85.0, request@^2.87.0:
   version "2.88.2"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.2.tgz#d73c918731cb5a87da047e207234146f664d12b3"
   integrity sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw==
@@ -9644,6 +9644,12 @@ videojs-languages@^2.0.0:
     globby "^8.0.1"
     mkdirp "^0.5.1"
 
+videojs-seek-buttons@smashcut/videojs-seek-buttons#smashcut/develop:
+  version "1.5.0-smashcut"
+  resolved "https://codeload.github.com/smashcut/videojs-seek-buttons/tar.gz/286e919cf48f2b8b366645d70a02952ad4bc5ff0"
+  dependencies:
+    global "^4.3.2"
+
 videojs-standard@^8.0.3:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/videojs-standard/-/videojs-standard-8.0.4.tgz#c5bfe8db37c81f6fb160220fc5b259b6a7fd42b2"
@@ -9662,6 +9668,13 @@ videojs-swf@5.4.2:
   version "5.4.2"
   resolved "https://registry.yarnpkg.com/videojs-swf/-/videojs-swf-5.4.2.tgz#6964a9bff903b732f3e465314ae478a02a17e8ab"
   integrity sha512-FGg+Csioa8/A/EacvFefBdb9Z0rSiMlheHDunZnN3xXfUF43jvjawcWFQnZvrv1Cs1nE1LBrHyUZjF7j2mKOLw==
+
+videojs-vtt-thumbnails@smashcut/videojs-vtt-thumbnails#smashcut/develop:
+  version "0.0.13-smashcut"
+  resolved "https://codeload.github.com/smashcut/videojs-vtt-thumbnails/tar.gz/c08d98432a3949ebd31b1239e270e94ee416f774"
+  dependencies:
+    global "^4.3.2"
+    request "^2.83.0"
 
 videojs-vtt.js@^0.14.1:
   version "0.14.1"

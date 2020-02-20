@@ -150,7 +150,9 @@
     "videojs-flash": "^2.2.0",
     "videojs-generate-karma-config": "~5.2.1",
     "videojs-languages": "^2.0.0",
+    "videojs-seek-buttons": "smashcut/videojs-seek-buttons#smashcut/develop",
     "videojs-standard": "^8.0.3",
+    "videojs-vtt-thumbnails": "smashcut/videojs-vtt-thumbnails#smashcut/develop",
     "webpack": "^2.0.0"
   },
   "vjsstandard": {

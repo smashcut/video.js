@@ -17,7 +17,21 @@
         U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
     }
   </style>
-  <link href="../dist/video-js.css" rel="stylesheet" type="text/css">
+  <link
+        href="../node_modules/videojs-vtt-thumbnails/dist/videojs-vtt-thumbnails.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link
+        href="../node_modules/videojs-seek-buttons/dist/videojs-seek-buttons.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="../dist/video-js.css" rel="stylesheet" type="text/css" />
+
+      <script src="../node_modules/videojs-vtt-thumbnails/dist/videojs-vtt-thumbnails.js"></script>
+      <script src="../node_modules/videojs-seek-buttons/dist/videojs-seek-buttons.js"></script>
+
   <script src="../dist/video.js"></script>
 </head>
 <body>
@@ -44,6 +58,15 @@
   <script>
     var vid = document.getElementById('vid1');
     var player = videojs(vid);
+
+        this.player.seekButtons({
+          forward: 10,
+          back: 10
+        });
+
+        this.player.vttThumbnails({
+          src: conf.timelineThumbnails
+        });
   </script>
 
 </body>
