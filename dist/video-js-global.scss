@@ -1733,6 +1733,82 @@ video::-webkit-media-text-track-display {
   margin-right: 1em;
 }
 
+.video-js .vjs-end-of-video-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.video-js .vjs-end-of-video-nav .vjs-button {
+  width: 44px;
+  height: 44px;
+  opacity: 0.6;
+  border-radius: 40px;
+  border: solid 3px #ffffff;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-left: 10px;
+  margin-right: 10px;
+  pointer-events: all;
+  cursor: pointer;
+}
+.video-js .vjs-end-of-video-nav .vjs-button:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+.video-js .vjs-end-of-video-nav .vjs-button.not-available {
+  display: none;
+}
+.video-js .vjs-end-of-video-nav .vjs-button.locked {
+  pointer-events: none;
+}
+.video-js .vjs-end-of-video-nav .vjs-button.locked .vjs-icon-placeholder:before {
+  font-family: "Font Awesome 5 Free";
+  content: "" !important;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 23px;
+  color: white;
+  padding-top: 0px;
+  padding-left: 1px;
+}
+.video-js .vjs-end-of-video-nav .vjs-play-previous-button .vjs-icon-placeholder:before {
+  font-family: "Font Awesome 5 Free";
+  content: "" !important;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 23px;
+  color: white;
+  padding-top: 3px;
+  padding-left: 0;
+}
+.video-js .vjs-end-of-video-nav .vjs-play-again-button .vjs-icon-placeholder:before {
+  font-family: "Font Awesome 5 Free";
+  content: "" !important;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 23px;
+  color: white;
+  padding-top: 3px;
+  padding-left: 0;
+}
+.video-js .vjs-end-of-video-nav .vjs-play-next-button .vjs-icon-placeholder:before {
+  font-family: "Font Awesome 5 Free";
+  content: "" !important;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 23px;
+  color: white;
+  padding-top: 3px;
+  padding-left: 0;
+}
+
 @media print {
   .video-js > *:not(.vjs-tech):not(.vjs-poster) {
     visibility: hidden;

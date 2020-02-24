@@ -65,7 +65,7 @@ class ControlBar extends Component {
     return this.controlBarEl;
   }
 
-  // add children to layout comps based on their name
+  // Hack: add children to layout comps based on their name
   addChild(child, options = {}, index = this.children_.length) {
     const saveEl = this.el_;
 

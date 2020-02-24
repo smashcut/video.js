@@ -1,0 +1,69 @@
+@mixin fontAwesomeIcon($content, $top: 3px, $left: 0){
+  .vjs-icon-placeholder {
+    &:before {
+      font-family: 'Font Awesome 5 Free';
+      content: $content !important;
+      display: inline-block;
+      font-weight: 900;
+      font-size: 23px;
+      color: white;
+      padding-top: $top;
+      padding-left: $left;
+    }
+  }
+}
+
+.video-js .vjs-end-of-video-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  .vjs-button {
+    width: 44px;
+    height: 44px;
+    opacity: 0.6;
+    border-radius: 40px;
+    border: solid 3px #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
+    // margin-bottom: 9px;
+    margin-left: 10px;
+    margin-right: 10px;
+    pointer-events: all;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    &.not-available {
+      display: none;
+    }
+
+    &.locked {
+      pointer-events: none;
+      @include fontAwesomeIcon('\f023', 0px, 1px);
+    }
+
+  }
+
+  .vjs-play-previous-button {
+    @include fontAwesomeIcon('\f100');
+  }
+
+  .vjs-play-again-button {
+    @include fontAwesomeIcon('\f01e');
+  }
+
+  .vjs-play-next-button {
+    @include fontAwesomeIcon('\f101');
+  }
+}

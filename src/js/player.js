@@ -45,6 +45,7 @@ import './loading-spinner.js';
 // import './big-play-button.js';
 import './close-button.js';
 import './control-bar/control-bar.js';
+import './end-of-video-nav/end-of-video-nav.js';
 import './error-display.js';
 import './tracks/text-track-settings.js';
 import './resize-manager.js';
@@ -4699,7 +4700,8 @@ Player.prototype.options_ = {
     'controlBar',
     'errorDisplay',
     'textTrackSettings',
-    'resizeManager'
+    'resizeManager',
+    'endOfVideoNav'
   ],
 
   language: navigator && (navigator.languages && navigator.languages[0] || navigator.userLanguage || navigator.language) || 'en',

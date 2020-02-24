@@ -19542,7 +19542,7 @@
       this.controlBarBottomEl.appendChild(this.controlBarBottomLeftEl);
       this.controlBarBottomEl.appendChild(this.controlBarBottomRightEl);
       return this.controlBarEl;
-    } // add children to layout comps based on their name
+    } // Hack: add children to layout comps based on their name
     ;
 
     _proto.addChild = function addChild(child, options, index) {
@@ -19614,6 +19614,282 @@
   }*/
 
   Component.registerComponent('ControlBar', ControlBar);
+
+  /**
+   * Button to play the video again.
+   *
+   * @extends Button
+   */
+
+  var PlayAgainButton =
+  /*#__PURE__*/
+  function (_Button) {
+    inheritsLoose(PlayAgainButton, _Button);
+
+    function PlayAgainButton() {
+      return _Button.apply(this, arguments) || this;
+    }
+
+    var _proto = PlayAgainButton.prototype;
+
+    /**
+     * Builds the default DOM `className`.
+     *
+     * @return {string}
+     *         The DOM `className` for this object.
+     */
+    _proto.buildCSSClass = function buildCSSClass() {
+      return "vjs-play-again-button " + this.getConfig() + " " + _Button.prototype.buildCSSClass.call(this);
+    };
+
+    _proto.getConfig = function getConfig() {
+      try {
+        return this.options_.playerOptions.endOfVideoNav.again || 'not-available';
+      } catch (err) {
+        return 'not-available';
+      }
+    }
+    /**
+     * This gets called when an `PlayAgainButton` is "clicked". See
+     * {@link ClickableComponent} for more detailed information on what a click can be.
+     *
+     * @param {EventTarget~Event} [event]
+     *        The `keydown`, `tap`, or `click` event that caused this function to be
+     *        called.
+     *
+     * @listens tap
+     * @listens click
+     */
+    ;
+
+    _proto.handleClick = function handleClick(event) {
+      this.player_.play();
+      this.dispatchSmashcutUiEvent('play-again');
+    };
+
+    return PlayAgainButton;
+  }(Button);
+  /**
+   * The text that should display over the `PlayAgainButton`s controls. Added for localization.
+   *
+   * @type {string}
+   * @private
+   */
+
+
+  PlayAgainButton.prototype.controlText_ = 'Play Again';
+  Component.registerComponent('PlayAgainButton', PlayAgainButton);
+
+  /**
+   * Button to play the next video.
+   *
+   * @extends Button
+   */
+
+  var PlayNextButton =
+  /*#__PURE__*/
+  function (_Button) {
+    inheritsLoose(PlayNextButton, _Button);
+
+    function PlayNextButton() {
+      return _Button.apply(this, arguments) || this;
+    }
+
+    var _proto = PlayNextButton.prototype;
+
+    /**
+     * Builds the default DOM `className`.
+     *
+     * @return {string}
+     *         The DOM `className` for this object.
+     */
+    _proto.buildCSSClass = function buildCSSClass() {
+      return "vjs-play-next-button " + this.getConfig() + " " + _Button.prototype.buildCSSClass.call(this);
+    };
+
+    _proto.getConfig = function getConfig() {
+      try {
+        return this.options_.playerOptions.endOfVideoNav.next || 'not-available';
+      } catch (err) {
+        return 'not-available';
+      }
+    }
+    /**
+     * This gets called when an `PlayNextButton` is "clicked". See
+     * {@link ClickableComponent} for more detailed information on what a click can be.
+     *
+     * @param {EventTarget~Event} [event]
+     *        The `keydown`, `tap`, or `click` event that caused this function to be
+     *        called.
+     *
+     * @listens tap
+     * @listens click
+     */
+    ;
+
+    _proto.handleClick = function handleClick(event) {
+      this.dispatchSmashcutUiEvent('play-next');
+    };
+
+    return PlayNextButton;
+  }(Button);
+  /**
+   * The text that should display over the `PlayNextButton`s controls. Added for localization.
+   *
+   * @type {string}
+   * @private
+   */
+
+
+  PlayNextButton.prototype.controlText_ = 'Play Next';
+  Component.registerComponent('PlayNextButton', PlayNextButton);
+
+  /**
+   * Button to play the previous video.
+   *
+   * @extends Button
+   */
+
+  var PlayPreviousButton =
+  /*#__PURE__*/
+  function (_Button) {
+    inheritsLoose(PlayPreviousButton, _Button);
+
+    function PlayPreviousButton() {
+      return _Button.apply(this, arguments) || this;
+    }
+
+    var _proto = PlayPreviousButton.prototype;
+
+    /**
+     * Builds the default DOM `className`.
+     *
+     * @return {string}
+     *         The DOM `className` for this object.
+     */
+    _proto.buildCSSClass = function buildCSSClass() {
+      return "vjs-play-previous-button " + this.getConfig() + " " + _Button.prototype.buildCSSClass.call(this);
+    };
+
+    _proto.getConfig = function getConfig() {
+      try {
+        return this.options_.playerOptions.endOfVideoNav.previous || 'not-available';
+      } catch (err) {
+        return 'not-available';
+      }
+    }
+    /**
+     * This gets called when an `PlayPreviousButton` is "clicked". See
+     * {@link ClickableComponent} for more detailed information on what a click can be.
+     *
+     * @param {EventTarget~Event} [event]
+     *        The `keydown`, `tap`, or `click` event that caused this function to be
+     *        called.
+     *
+     * @listens tap
+     * @listens click
+     */
+    ;
+
+    _proto.handleClick = function handleClick(event) {
+      this.dispatchSmashcutUiEvent('play-previous');
+    };
+
+    return PlayPreviousButton;
+  }(Button);
+  /**
+   * The text that should display over the `PlayPreviousButton`s controls. Added for localization.
+   *
+   * @type {string}
+   * @private
+   */
+
+
+  PlayPreviousButton.prototype.controlText_ = 'Play Previous';
+  Component.registerComponent('PlayPreviousButton', PlayPreviousButton);
+
+  /**
+   * A `Component` that handles showing the nav at the end of the video.
+   *
+   * @extends Component
+   */
+
+  var EndOfVideoNav =
+  /*#__PURE__*/
+  function (_Component) {
+    inheritsLoose(EndOfVideoNav, _Component);
+
+    /**
+     * Create an instance of this class.
+     *
+     * @param {Player} player
+     *        The `Player` that this class should attach to.
+     *
+     * @param {Object} [options]
+     *        The key/value store of player options.
+     */
+    function EndOfVideoNav(player, options) {
+      var _this;
+
+      _this = _Component.call(this, player, options) || this;
+
+      _this.hide();
+
+      player.on('ended', bind(assertThisInitialized(_this), _this.show));
+      player.on(['play', 'seek', 'seeked'], bind(assertThisInitialized(_this), _this.hide));
+      return _this;
+    }
+    /**
+     * Clean up and dispose of the `EndOfVideoNav`.
+     */
+
+
+    var _proto = EndOfVideoNav.prototype;
+
+    _proto.dispose = function dispose() {
+      this.player.off('ended', this.show);
+      this.player.off(['play', 'seek', 'seeked'], this.hide);
+
+      _Component.prototype.dispose.call(this);
+    }
+    /**
+     * Create the `EndOfVideoNav`s DOM element.
+     *
+     * @return {Element}
+     *         The element that gets created.
+     */
+    ;
+
+    _proto.createEl = function createEl$1() {
+      var el = createEl('div', {
+        className: 'vjs-end-of-video-nav',
+        // Don't want to be tabbable.
+        tabIndex: -1
+      });
+      var contentEl = createEl('div', {
+        className: 'vjs-end-of-video-nav-content',
+        // Don't want to be tabbable.
+        tabIndex: -1
+      });
+      el.appendChild(contentEl);
+      this.contentEl_ = contentEl;
+      return el;
+    };
+
+    return EndOfVideoNav;
+  }(Component);
+  /**
+   * Default options for `EndOfVideoNav`
+   * The order is important. It defines the order of the ui elements
+   * @type {Object}
+   * @private
+   */
+
+
+  EndOfVideoNav.prototype.options_ = {
+    children: ['playPreviousButton', 'playAgainButton', 'playNextButton']
+  };
+  Component.registerComponent('EndOfVideoNav', EndOfVideoNav);
 
   /**
    * A display that indicates an error has occurred. This means that the video
@@ -27666,7 +27942,7 @@
     liveui: false,
     // Included control sets
     children: ['mediaLoader', 'posterImage', 'textTrackDisplay', 'loadingSpinner', // 'bigPlayButton',
-    'liveTracker', 'controlBar', 'errorDisplay', 'textTrackSettings', 'resizeManager'],
+    'liveTracker', 'controlBar', 'errorDisplay', 'textTrackSettings', 'resizeManager', 'endOfVideoNav'],
     language: navigator && (navigator.languages && navigator.languages[0] || navigator.userLanguage || navigator.language) || 'en',
     // locales and their language translations
     languages: {},

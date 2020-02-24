@@ -862,7 +862,6 @@
     m3u8-parser "4.4.2"
     mpd-parser "0.10.0"
     mux.js "5.5.1"
-    video.js "^6 || ^7"
 
 "@videojs/vhs-utils@^1.0.0", "@videojs/vhs-utils@^1.1.0", "@videojs/vhs-utils@^1.2.1":
   version "1.3.0"
@@ -1044,10 +1043,20 @@ ajv@^4.7.0:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
-ajv@^6.10.2, ajv@^6.5.5, ajv@^6.9.1:
+ajv@^6.10.2, ajv@^6.9.1:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.11.0.tgz#c3607cbc8ae392d8a5a536f25b21f8e5f3f87fe9"
   integrity sha512-nCprB/0syFYy9fVYU1ox1l2KN8S9I+tziH8D4zdZuLT3N6RMlGSGt5FSTpAiHB/Whv8Qs1cWHma1aMKZyaHRKA==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
+
+ajv@^6.5.5:
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.0.tgz#06d60b96d87b8454a5adaba86e7854da629db4b7"
+  integrity sha512-D6gFiFA0RRLyUbvijN74DWAjXSFxWKaWP7mldxkVhyhAV3+SWA9HEJPHQ2c9soIeTFJqcSdFDGFgdqs1iUU2Hw==
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
@@ -9671,7 +9680,7 @@ videojs-swf@5.4.2:
 
 videojs-vtt-thumbnails@smashcut/videojs-vtt-thumbnails#smashcut/develop:
   version "0.0.13-smashcut"
-  resolved "https://codeload.github.com/smashcut/videojs-vtt-thumbnails/tar.gz/c08d98432a3949ebd31b1239e270e94ee416f774"
+  resolved "https://codeload.github.com/smashcut/videojs-vtt-thumbnails/tar.gz/02b1943469999852cdcee1c1b6768bd0ee2d8f67"
   dependencies:
     global "^4.3.2"
     request "^2.83.0"

@@ -73,7 +73,7 @@
     "netlify": "node ./build/netlify-docs.js",
     "prepublishOnly": "run-p build",
     "publish": "node build/gh-release.js",
-    "upgrade:smashcut": "yarn upgrade @videojs/http-streaming @videojs/xhr",
+    "upgrade:smashcut": "yarn upgrade @videojs/http-streaming @videojs/xhr videojs-vtt-thumbnails videojs-seek-buttons",
     "version": "is-prerelease || npm run changelog && git add CHANGELOG.md",
     "zip": "cd dist && cross-env bestzip \"./video-js-${npm_package_version}.zip\" * && cd .."
   },
