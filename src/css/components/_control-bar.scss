@@ -8,7 +8,7 @@
   height: $control-bar-height;
   padding-top: 15px;
   background-color: #242424;
-  z-index: 0; // otherwise timeline markers disappear, when cb has focus
+  z-index: 0 !important; // otherwise timeline markers disappear, when cb has focus
 }
 
 .video-js .vjs-control-bar-top {

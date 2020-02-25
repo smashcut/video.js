@@ -734,7 +734,7 @@ body.vjs-full-window {
   height: 64px;
   padding-top: 15px;
   background-color: #242424;
-  z-index: 0;
+  z-index: 0 !important;
 }
 
 .video-js .vjs-control-bar-top {
