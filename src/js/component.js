@@ -824,7 +824,9 @@ class Component {
    * 'vjs-hidden' class name from it.
    */
   show() {
-    this.removeClass('vjs-hidden');
+    setTimeout(()=>{
+      this.removeClass('vjs-hidden');
+    }, 500);
   }
 
   /**

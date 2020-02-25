@@ -4066,7 +4066,11 @@
     ;
 
     _proto.show = function show() {
-      this.removeClass('vjs-hidden');
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.removeClass('vjs-hidden');
+      }, 500);
     }
     /**
      * Hide the `Component`s element if it is currently showing by adding the
@@ -4599,7 +4603,7 @@
     ;
 
     _proto.setTimeout = function setTimeout(fn, timeout) {
-      var _this2 = this;
+      var _this3 = this;
 
       // declare as variables so they are properly available in timeout function
       // eslint-disable-next-line
@@ -4607,8 +4611,8 @@
       fn = bind(this, fn);
       this.clearTimersOnDispose_();
       timeoutId = window$1.setTimeout(function () {
-        if (_this2.setTimeoutIds_.has(timeoutId)) {
-          _this2.setTimeoutIds_["delete"](timeoutId);
+        if (_this3.setTimeoutIds_.has(timeoutId)) {
+          _this3.setTimeoutIds_["delete"](timeoutId);
         }
 
         fn();
@@ -4723,7 +4727,7 @@
     ;
 
     _proto.requestAnimationFrame = function requestAnimationFrame(fn) {
-      var _this3 = this;
+      var _this4 = this;
 
       // Fall back to using a timer.
       if (!this.supportsRaf_) {
@@ -4736,8 +4740,8 @@
       var id;
       fn = bind(this, fn);
       id = window$1.requestAnimationFrame(function () {
-        if (_this3.rafIds_.has(id)) {
-          _this3.rafIds_["delete"](id);
+        if (_this4.rafIds_.has(id)) {
+          _this4.rafIds_["delete"](id);
         }
 
         fn();
@@ -4789,7 +4793,7 @@
     ;
 
     _proto.clearTimersOnDispose_ = function clearTimersOnDispose_() {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this.clearingTimersOnDispose_) {
         return;
@@ -4801,9 +4805,9 @@
           var idName = _ref[0],
               cancelName = _ref[1];
 
-          _this4[idName].forEach(_this4[cancelName], _this4);
+          _this5[idName].forEach(_this5[cancelName], _this5);
         });
-        _this4.clearingTimersOnDispose_ = false;
+        _this5.clearingTimersOnDispose_ = false;
       });
     }
     /**

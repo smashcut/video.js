@@ -25,6 +25,7 @@
   left: 0;
   right: 0;
   top: 0;
+  z-index: 10000; // one above the thing that has focus
 
   .vjs-button {
     width: 44px;

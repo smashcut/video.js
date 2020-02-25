@@ -733,6 +733,7 @@ body.vjs-full-window {
   height: 64px;
   padding-top: 15px;
   background-color: #242424;
+  z-index: 0;
 }
 
 .video-js .vjs-control-bar-top {
@@ -1744,6 +1745,7 @@ video::-webkit-media-text-track-display {
   left: 0;
   right: 0;
   top: 0;
+  z-index: 10000;
 }
 .video-js .vjs-end-of-video-nav .vjs-button {
   width: 44px;
