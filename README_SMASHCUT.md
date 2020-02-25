@@ -16,3 +16,7 @@ Note that some deps are only used for the demo and therefore they are in dev dep
 
 * videojs-seek-buttons
 * videojs-vtt-thumbnails
+
+# Theming
+
+The old player had themes. However, the effect was so subtle, that we might get away without themes for the player. That would spare us some work. Currently the player is "themed" neutrally.
