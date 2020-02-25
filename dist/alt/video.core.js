@@ -19518,24 +19518,19 @@
      */
     _proto.createEl = function createEl() {
       this.controlBarTopEl = _Component.prototype.createEl.call(this, 'div', {
-        className: 'vjs-control-bar-top',
-        dir: 'ltr'
+        className: 'vjs-control-bar-top'
       });
       this.controlBarBottomEl = _Component.prototype.createEl.call(this, 'div', {
-        className: 'vjs-control-bar-bottom',
-        dir: 'ltr'
+        className: 'vjs-control-bar-bottom'
       });
       this.controlBarBottomLeftEl = _Component.prototype.createEl.call(this, 'div', {
-        className: 'vjs-control-bar-bottom-left',
-        dir: 'ltr'
+        className: 'vjs-control-bar-bottom-left'
       });
       this.controlBarBottomRightEl = _Component.prototype.createEl.call(this, 'div', {
-        className: 'vjs-control-bar-bottom-right',
-        dir: 'ltr'
+        className: 'vjs-control-bar-bottom-right'
       });
       this.controlBarEl = _Component.prototype.createEl.call(this, 'div', {
-        className: 'vjs-control-bar',
-        dir: 'ltr'
+        className: 'vjs-control-bar'
       });
       this.controlBarEl.appendChild(this.controlBarTopEl);
       this.controlBarEl.appendChild(this.controlBarBottomEl);
