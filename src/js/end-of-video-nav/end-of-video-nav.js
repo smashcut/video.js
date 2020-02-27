@@ -37,8 +37,8 @@ class EndOfVideoNav extends Component {
    * Clean up and dispose of the `EndOfVideoNav`.
    */
   dispose() {
-    this.player.off('ended', this.show);
-    this.player.off(['play', 'seek', 'seeked'], this.hide);
+    this.player_.off('ended', this.show);
+    this.player_.off(['play', 'seek', 'seeked'], this.hide);
     super.dispose();
   }
 

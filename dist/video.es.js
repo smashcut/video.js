@@ -17441,8 +17441,8 @@ function (_Component) {
   var _proto = EndOfVideoNav.prototype;
 
   _proto.dispose = function dispose() {
-    this.player.off('ended', this.show);
-    this.player.off(['play', 'seek', 'seeked'], this.hide);
+    this.player_.off('ended', this.show);
+    this.player_.off(['play', 'seek', 'seeked'], this.hide);
 
     _Component.prototype.dispose.call(this);
   }
