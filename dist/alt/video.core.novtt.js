@@ -803,6 +803,10 @@
    */
 
   function removeClass(element, classToRemove) {
+    if (!element) {
+      return;
+    }
+
     if (element.classList) {
       element.classList.remove(classToRemove);
     } else {
@@ -7485,6 +7489,10 @@
   var toString$1 = Object.prototype.toString;
 
   function isFunction(fn) {
+    if (!fn) {
+      return false;
+    }
+
     var string = toString$1.call(fn);
     return string === '[object Function]' || typeof fn === 'function' && string !== '[object RegExp]' || typeof window !== 'undefined' && ( // IE8 and below
     fn === window.setTimeout || fn === window.alert || fn === window.confirm || fn === window.prompt);

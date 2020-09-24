@@ -807,6 +807,10 @@
    */
 
   function removeClass(element, classToRemove) {
+    if (!element) {
+      return;
+    }
+
     if (element.classList) {
       element.classList.remove(classToRemove);
     } else {
@@ -7489,6 +7493,10 @@
   var toString$1 = Object.prototype.toString;
 
   function isFunction(fn) {
+    if (!fn) {
+      return false;
+    }
+
     var string = toString$1.call(fn);
     return string === '[object Function]' || typeof fn === 'function' && string !== '[object RegExp]' || typeof window !== 'undefined' && ( // IE8 and below
     fn === window.setTimeout || fn === window.alert || fn === window.confirm || fn === window.prompt);
@@ -29296,16 +29304,12 @@
 
   var urlToolkit = createCommonjsModule(function (module, exports) {
     // see https://tools.ietf.org/html/rfc1808
-
-    /* jshint ignore:start */
     (function (root) {
-      /* jshint ignore:end */
-      var URL_REGEX = /^((?:[a-zA-Z0-9+\-.]+:)?)(\/\/[^\/?#]*)?((?:[^\/\?#]*\/)*.*?)??(;.*?)?(\?.*?)?(#.*?)?$/;
+      var URL_REGEX = /^((?:[a-zA-Z0-9+\-.]+:)?)(\/\/[^\/?#]*)?((?:[^\/?#]*\/)*[^;?#]*)?(;[^?#]*)?(\?[^#]*)?(#.*)?$/;
       var FIRST_SEGMENT_REGEX = /^([^\/?#]*)(.*)$/;
       var SLASH_DOT_REGEX = /(?:\/|^)\.(?=\/)/g;
-      var SLASH_DOT_DOT_REGEX = /(?:\/|^)\.\.\/(?!\.\.\/).*?(?=\/)/g;
+      var SLASH_DOT_DOT_REGEX = /(?:\/|^)\.\.\/(?!\.\.\/)[^\/]*(?=\/)/g;
       var URLToolkit = {
-        // jshint ignore:line
         // If opts.alwaysNormalize is true then the path will always be normalized even when it starts with / or //
         // E.g
         // With opts.alwaysNormalize = false (default, spec compliant)
@@ -29456,8 +29460,7 @@
           // complete path segment not equal to "..", that
           // "<segment>/.." is removed.
 
-          while (path.length !== (path = path.replace(SLASH_DOT_DOT_REGEX, '')).length) {} // jshint ignore:line
-
+          while (path.length !== (path = path.replace(SLASH_DOT_DOT_REGEX, '')).length) {}
 
           return path.split('').reverse().join('');
         },
@@ -29465,12 +29468,8 @@
           return parts.scheme + parts.netLoc + parts.path + parts.params + parts.query + parts.fragment;
         }
       };
-      /* jshint ignore:start */
-
       module.exports = URLToolkit;
     })();
-    /* jshint ignore:end */
-
   });
 
   function _interopDefault(ex) {

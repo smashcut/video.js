@@ -795,6 +795,10 @@ function addClass(element, classToAdd) {
  */
 
 function removeClass(element, classToRemove) {
+  if (!element) {
+    return;
+  }
+
   if (element.classList) {
     element.classList.remove(classToRemove);
   } else {
