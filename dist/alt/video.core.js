@@ -19854,6 +19854,10 @@
       this.player_.off(['play', 'seek', 'seeked'], this.hide);
 
       _Component.prototype.dispose.call(this);
+    };
+
+    _proto.hideEndOfNav = function hideEndOfNav() {
+      this.hide();
     }
     /**
      * Create the `EndOfVideoNav`s DOM element.
