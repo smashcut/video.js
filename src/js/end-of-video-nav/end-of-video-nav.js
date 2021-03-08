@@ -42,7 +42,7 @@ class EndOfVideoNav extends Component {
     super.dispose();
   }
 
-  hideEndOfNav() {
+  hideEndOfVideoNav() {
     this.hide();
   }
 

@@ -18001,7 +18001,7 @@
       _Component.prototype.dispose.call(this);
     };
 
-    _proto.hideEndOfNav = function hideEndOfNav() {
+    _proto.hideEndOfVideoNav = function hideEndOfVideoNav() {
       this.hide();
     }
     /**
