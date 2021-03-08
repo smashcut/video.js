@@ -42,6 +42,10 @@ class EndOfVideoNav extends Component {
     super.dispose();
   }
 
+  hideEndOfVideoNav() {
+    this.hide();
+  }
+
   /**
    * Create the `EndOfVideoNav`s DOM element.
    *

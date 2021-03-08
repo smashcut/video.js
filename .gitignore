@@ -29,6 +29,8 @@ test/dist/*
 .sass-cache
 
 # dist/*
+dist/*.zip
+dist/examples/elephantsdream/descriptions.en.vtt
 es5/*
 
 .idea/
