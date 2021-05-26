@@ -16,7 +16,6 @@
 * [Quick Start](#quick-start)
 * [Contributing](#contributing)
 * [Code of Conduct](#code-of-conduct)
-* [License](#license)
 
 ## Quick Start
 
@@ -114,10 +113,6 @@ _Video.js uses [BrowserStack][browserstack] for compatibility testing._
 ## [Code of Conduct][coc]
 
 Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
-
-## [License][license]
-
-Video.js is [licensed][license] under the Apache License, Version 2.0.
 
 [browserstack]: https://browserstack.com
 
