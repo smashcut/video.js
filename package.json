@@ -6,7 +6,6 @@
   "module": "./dist/video.es.js",
   "style": "./dist/video-js.css",
   "copyright": "Copyright Brightcove, Inc. <https://www.brightcove.com/>",
-  "license": "Apache-2.0",
   "keywords": [
     "flash",
     "html5",
